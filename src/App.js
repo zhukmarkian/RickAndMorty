@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Characters from "./pages/body/Characters";
+import SoloChar from "./components/SoloChars/SoloChar";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+function App(props) {
+
+    return (
+        <Router>
+            <div>
+                <Switch>
+                    <Route path='/' exact {...props} component={Characters}/>
+                    <Route path="/:id" {...props} component={SoloChar}/>
+                </Switch>
+
+            </div>
+        </Router>
+
+    );
 }
 
+
 export default App;
+
+
